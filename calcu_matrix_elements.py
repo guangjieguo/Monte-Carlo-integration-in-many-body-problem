@@ -8,7 +8,7 @@ import gc
 from time import *
 
 
-# 参数模块
+# parameters setting
 n=5
 g=2
 beta=[math.sqrt(2/n)-0.1,math.sqrt(2/n),math.sqrt(2/n)+0.1]
@@ -98,11 +98,11 @@ def func2(i,j,x):
 def assis_func(sigma,x):
         return np.e**((np.sum(x*x, axis=1))/(sigma**2))
 
-# 得到随机数
+# initiate random points for Monte Carlo Integration
 num=10000000
 points = nr.uniform(0,1, (num, n))
 
-# 计算矩阵元
+# calculate matrix elements by using Monte Carlo integration using auxiliary functions method
 def cal_matri_eles(i,j):
     sigma = 5/max([beta[i],beta[j]])
     integ_domin = 10/min([beta[i],beta[j]])
